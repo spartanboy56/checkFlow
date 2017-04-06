@@ -1,0 +1,80 @@
+<?import java.lang.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.CheckBox?>
+
+<GridPane id="checkList" alignment="TOP_LEFT" hgap="10" vgap="10">
+    <padding>
+        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+    </padding>
+
+    <Label text="Power on/Power port" GridPane.columnIndex="0" GridPane.rowIndex="0"></Label>
+    <CheckBox id="Power on" GridPane.columnIndex="1" GridPane.rowIndex="0"></CheckBox>
+
+    <Label text="Clean" GridPane.columnIndex="0" GridPane.rowIndex="1"></Label>
+    <CheckBox id="Clean" GridPane.columnIndex="1" GridPane.rowIndex="1"></CheckBox>
+
+    <Label text="Alignment" GridPane.columnIndex="0" GridPane.rowIndex="2"></Label>
+    <CheckBox id="Alignment" GridPane.columnIndex="1" GridPane.rowIndex="2"></CheckBox>
+
+    <Label text="Viewfinder" GridPane.columnIndex="0" GridPane.rowIndex="3"></Label>
+    <CheckBox id="Viewfinder" GridPane.columnIndex="1" GridPane.rowIndex="3"></CheckBox>
+
+    <Label text="Video out" GridPane.columnIndex="0" GridPane.rowIndex="4"></Label>
+    <CheckBox id="Video out" GridPane.columnIndex="1" GridPane.rowIndex="4"></CheckBox>
+
+    <Label text="Computer connection" GridPane.columnIndex="0" GridPane.rowIndex="5"></Label>
+    <CheckBox id="Computer connection" GridPane.columnIndex="1" GridPane.rowIndex="5"></CheckBox>
+
+    <Label text="Palette" GridPane.columnIndex="0" GridPane.rowIndex="6"></Label>
+    <CheckBox id="Palette" GridPane.columnIndex="1" GridPane.rowIndex="6"></CheckBox>
+
+    <Label text="Focus/continuous" GridPane.columnIndex="0" GridPane.rowIndex="7"></Label>
+    <CheckBox id="Focus" GridPane.columnIndex="1" GridPane.rowIndex="7"></CheckBox>
+
+    <Label text="Filter" GridPane.columnIndex="0" GridPane.rowIndex="8"></Label>
+    <CheckBox id="Filter" GridPane.columnIndex="1" GridPane.rowIndex="8"></CheckBox>
+
+    <Label text="Shutter" GridPane.columnIndex="0" GridPane.rowIndex="9"></Label>
+    <CheckBox id="Shutter" GridPane.columnIndex="1" GridPane.rowIndex="9"></CheckBox>
+
+    <Label text="Lamp" GridPane.columnIndex="0" GridPane.rowIndex="10"></Label>
+    <CheckBox id="Lamp" GridPane.columnIndex="1" GridPane.rowIndex="10"></CheckBox>
+
+    <Label text="Laser and alignment" GridPane.columnIndex="0" GridPane.rowIndex="11"></Label>
+    <CheckBox id="Laser" GridPane.columnIndex="1" GridPane.rowIndex="11"></CheckBox>
+
+    <Label text="Calibration check" GridPane.columnIndex="0" GridPane.rowIndex="12"></Label>
+    <CheckBox id="Calibration check" GridPane.columnIndex="1" GridPane.rowIndex="12"></CheckBox>
+
+    <Label text="LCD/touchscreen" GridPane.columnIndex="0" GridPane.rowIndex="13"></Label>
+    <CheckBox id="LCD touchschreen" GridPane.columnIndex="1" GridPane.rowIndex="13"></CheckBox>
+
+    <Label text="Save/delete images" GridPane.columnIndex="0" GridPane.rowIndex="14"></Label>
+    <CheckBox id="save delete" GridPane.columnIndex="1" GridPane.rowIndex="14"></CheckBox>
+
+    <Label text="Wi-Fi/Bluetooth" GridPane.columnIndex="0" GridPane.rowIndex="15"></Label>
+    <CheckBox id="wifi bluetooth" GridPane.columnIndex="1" GridPane.rowIndex="15"></CheckBox>
+
+    <Label text="Low battery mods" GridPane.columnIndex="3" GridPane.rowIndex="0"></Label>
+    <CheckBox id="low battery mods" GridPane.columnIndex="4" GridPane.rowIndex="0"></CheckBox>
+
+    <Label text="SD/PWR rubber lids" GridPane.columnIndex="3" GridPane.rowIndex="1"></Label>
+    <CheckBox id="rubber lid" GridPane.columnIndex="4" GridPane.rowIndex="1"></CheckBox>
+
+    <Label text="Black battery box" GridPane.columnIndex="3" GridPane.rowIndex="2"></Label>
+    <CheckBox id="battery box" GridPane.columnIndex="4" GridPane.rowIndex="2"></CheckBox>
+
+    <Label text="Calibration check" GridPane.columnIndex="3" GridPane.rowIndex="3"></Label>
+    <CheckBox id="Calibration check" GridPane.columnIndex="4" GridPane.rowIndex="3"></CheckBox>
+
+
+    <Label text="Backup tool" GridPane.columnIndex="5" GridPane.rowIndex="0"></Label>
+    <Button text="Launch" GridPane.columnIndex="6" GridPane.rowIndex="0"></Button>
+
+
+</GridPane>

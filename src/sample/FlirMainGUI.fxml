@@ -1,0 +1,43 @@
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.layout.GridPane?>
+<?import sample.CheckFlowController?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.layout.VBox?>
+
+
+<?import java.lang.String?>
+<?import javafx.scene.text.Text?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.Tab?>
+<BorderPane fx:controller="sample.CheckFlowController" xmlns:fx="http://javafx.com/fxml">
+
+    <top>
+        <VBox id="vbox" >
+            <MenuBar id="menuBar" focusTraversable="true">
+                <menus>
+                    <Menu fx:id="file" text="File">
+                        <items>
+                            <MenuItem fx:id="newItem" text="New RMA" onAction="#addTab"/>
+                            <MenuItem text="Open RMA"/>
+                        </items>
+                    </Menu>
+                </menus>
+            </MenuBar>
+        </VBox>
+    </top>
+
+    <center>
+        <TabPane fx:id="tabPane" id="tabPane">
+            <tabs>
+
+            </tabs>
+        </TabPane>
+    </center>
+
+</BorderPane>
