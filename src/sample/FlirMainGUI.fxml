@@ -25,6 +25,8 @@
                         <items>
                             <MenuItem fx:id="newItem" text="New RMA" onAction="#addTab"/>
                             <MenuItem text="Open RMA"/>
+                            <MenuItem text="List Tabs" fx:id="listItem" onAction="#listTabs"/>
+                            <MenuItem text="Copy tab" fx:id="copyItem" onAction="#copyTab"/>
                         </items>
                     </Menu>
                 </menus>
