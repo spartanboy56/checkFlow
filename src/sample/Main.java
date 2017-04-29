@@ -15,6 +15,7 @@ import javafx.stage.WindowEvent;
 
 import java.awt.event.WindowAdapter;
 import java.io.File;
+import java.net.URL;
 import java.util.Scanner;
 import java.util.prefs.Preferences;
 
@@ -22,7 +23,7 @@ import java.util.prefs.Preferences;
 
 public class Main extends Application {
 
-
+private FXMLLoader fxmlLoader;
 
     @Override
     public void start(Stage primaryStage) throws Exception{
@@ -31,45 +32,30 @@ public class Main extends Application {
                 System.getProperty("user.dir"));
         File flirGUI = new File("C:\\Users\\Pappy\\Documents\\GitHub\\checkFlow\\src\\sample\\FlirMainGUI.fxml");
         boolean exists = flirGUI.exists();
-        CheckFlowController GUI = new CheckFlowController();
-        System.out.println(exists);
+        String usedUI;
         if (exists){
-            GUI.SetUI("FlirMainGUI.fxml");
+            usedUI="FlirMainGUI.fxml";
         }else{
-            GUI.SetUI("MainGUI.fxml");
+            usedUI="MainGUI.fxml";
         }
-        String usedUI = GUI.GetUI();
-        Parent root = FXMLLoader.load(getClass().getResource(usedUI));
+        URL loca = getClass().getResource(usedUI);
+        fxmlLoader = new FXMLLoader();
+        fxmlLoader.setLocation(loca);
+        Parent root = (Parent) fxmlLoader.load(loca.openStream());
         primaryStage.setTitle("Check Flow");
         primaryStage.setScene(new Scene(root, 500, 500));
 
         primaryStage.show();
+
+
     }
+
+
 
     @Override
     public void stop(){
-        System.out.println(tabPane.isEmpty());
-        if(!tabPane.isEmpty()) {
-            csvHandler save = new csvHandler();
-            save.csvSaver(tabPane);
-        }else{
-            System.out.println("Attempting delete");
-            String fileLocal = System.getProperty("user.dir") + "\\CheckFlowSave.csv";
-            System.out.println(fileLocal);
-            File file = new File(fileLocal);
-            if(file.delete()){
-                System.out.println("Deleted!");
-            }
-        }
-    }
+        ((CheckFlowController) fxmlLoader.getController()).saveOnExit();
 
-    private static ObservableList<Tab> tabPane = FXCollections.observableArrayList();
-
-    public void setMainTabPane(Tab tab){
-        tabPane.add(tab);
-    }
-    public void setMainTabPane(ObservableList<Tab> tab){
-        tabPane.addAll(tab);
     }
 
 

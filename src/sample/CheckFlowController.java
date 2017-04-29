@@ -39,18 +39,6 @@ public class CheckFlowController {
     @FXML private MenuItem newItem;
     @FXML private Menu file;
     @FXML private TabPane tabPane = new TabPane();
-    @FXML private Tab RMA;
-
-
-
-
-    Main mainTabPane = new Main();
-    private static ObservableList<Tab> tabData = FXCollections.observableArrayList();
-    private static Map saveData;
-
-
-
-
     public void initialize(){
 
         String fileLocal = System.getProperty("user.dir") + "\\CheckFlowSave.csv";
@@ -59,11 +47,9 @@ public class CheckFlowController {
             csvHandler loader = new csvHandler();
             ObservableList<Tab> load = loader.csvLoader();
             tabPane.getTabs().addAll(load);
-            mainTabPane.setMainTabPane(load);
+
         }
     }
-
-
     public Parent getParent(){
         Parent returnParent = null;
         try {
@@ -78,15 +64,6 @@ public class CheckFlowController {
     }
 
     @FXML
-    public void exitApplication(ActionEvent event) {
-        Platform.exit();
-    }
-
-
-
-
-
-    @FXML
     private void addTab(ActionEvent event){
         Stage newRMAStage = new Stage();
         newRMAStage.setTitle("Enter RMA number");
@@ -97,12 +74,10 @@ public class CheckFlowController {
         Button createRMA = new Button("Create");
         createRMA.setMinWidth(50);
         createRMA.setFocusTraversable(true);
-
         newRMAPane.add(newRMA,0,0);
         newRMAPane.add(createRMA,0,1);
         Scene newRMAScene = new Scene(newRMAPane,100,50);
         newRMAStage.setScene(newRMAScene);
-
         newRMAStage.show();
         createRMA.setOnAction(new EventHandler<ActionEvent>() {
             @Override
@@ -117,10 +92,6 @@ public class CheckFlowController {
                     Tab tab = new Tab(RMAnumber, root);
                     tab.setId(RMAnumber);
                     //System.out.println(tab.getId());
-                    setTabData(tab);
-
-
-                    mainTabPane.setMainTabPane(tab);
                     tabPane.getTabs().add(tab);
                 } catch (IOException ex) {
                     ex.printStackTrace();
@@ -129,44 +100,26 @@ public class CheckFlowController {
         });
     }
 
-
-
     @FXML
     private void listTabs(ActionEvent event){
         System.out.println(tabPane.getTabs().size());
-
     }
-
     @FXML
     private void copyTab(ActionEvent event){
-        for(Tab tab : this.tabData){
-                if(tab.isSelected() == true){
-                    int index = this.tabData.indexOf(tab);
-                    Tab tabNew = new Tab(tab.getId() + "(1)",tab.getContent());
-                    this.tabData.add(index + 1,tabNew);
-                    tabPane.getTabs().add(tabNew);
-                }
-    }}
-
-
-    public void setTabData(Tab tab) {
-
-        tabData.add(tab);
-        System.out.println(tab.getId());
-        //this.tabData.forEach(tabID -> tabID.getContent());
-
+        }
+    public void saveOnExit(){
+        System.out.println(tabPane.getTabs().isEmpty());
+        if(!this.tabPane.getTabs().isEmpty()) {
+            csvHandler save = new csvHandler();
+            save.csvSaver(this.tabPane.getTabs());
+        }else{
+            System.out.println("Attempting delete");
+            String fileLocal = System.getProperty("user.dir") + "\\CheckFlowSave.csv";
+            System.out.println(fileLocal);
+            File file = new File(fileLocal);
+            if(file.delete()){
+                System.out.println("Deleted!");
+            }
+        }
     }
-
-    public ObservableList<Tab> getTabData(){
-        return tabPane.getTabs();
-    }
-
-    public void SetUI(String UI){
-        this.UI = UI;
-    }
-
-    public String GetUI(){
-        return this.UI;
-    }
-
 }
